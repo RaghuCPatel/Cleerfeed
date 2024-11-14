@@ -18,7 +18,7 @@ jobs:
       - name: cmd
         run: dir 
       - name: Test
-        run: npm run test:single --ENV="stage"  
+        run: npm run test:single --ENV=stage  
       - uses: actions/upload-artifact@v3
         with:
          name: html-reports
