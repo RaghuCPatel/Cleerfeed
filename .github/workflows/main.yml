@@ -31,7 +31,7 @@ jobs:
       - name: Run tests
         run: npm run test:single
         env:
-          ENV: stage  # Pass the environment variable correctly here
+          npm_config_ENV: stage  # Pass the environment variable correctly here
 
       - name: Upload HTML reports
         uses: actions/upload-artifact@v3
