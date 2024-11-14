@@ -1,23 +1,25 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
 import { testConfig } from './testConfig';
-import { OrtoniReportConfig } from 'ortoni-report';
+//import { OrtoniReportConfig } from 'ortoni-report';
 
 const ENV = process.env.npm_config_ENV;
+
+console.log(ENV)
 
 if (!ENV || ![`qa`, 'stage', `dev`, `qaApi`, `devApi`].includes(ENV)) {
   console.log(`Please provide a correct environment value after command like "--ENV=qa|stage|dev|qaApi|devApi"`);
   process.exit();
 }
 
-const reportConfig: OrtoniReportConfig = {
-  base64Image: true,
-  title: "Playwright Framework with Typescript",
-  showProject: true,
-  filename: "OrtoniHtmlReport",
-  authorName: "IGS Report",
-  preferredTheme: "dark",
-  projectName: "Playwright Framework with Typescript",
-}
+// const reportConfig: OrtoniReportConfig = {
+//   base64Image: true,
+//   title: "Playwright Framework with Typescript",
+//   showProject: true,
+//   filename: "OrtoniHtmlReport",
+//   authorName: "IGS Report",
+//   preferredTheme: "dark",
+//   projectName: "Playwright Framework with Typescript",
+// }
 
 const config: PlaywrightTestConfig = {
 
@@ -31,7 +33,7 @@ const config: PlaywrightTestConfig = {
   retries: 0,
 
   //Reporters
-  reporter: [[`./CustomReporterConfig.ts`], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }],['ortoni-report', reportConfig],['list']],
+  reporter: [[`./CustomReporterConfig.ts`], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }],['list']],
 
   workers:1,
   
@@ -49,7 +51,7 @@ const config: PlaywrightTestConfig = {
         baseURL: testConfig[ENV],
 
         //Browser Mode
-        headless: false,
+        headless: true,
 
         //Browser height and width
         viewport: { width: 1280, height: 800 },

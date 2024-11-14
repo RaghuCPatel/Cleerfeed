@@ -5000,3 +5000,14 @@
 {"level":"info","message":"Test Case Completed : Verify Login Page Status : failed"}
 {"level":"info","message":"Test Case Started : Enter email with incorrect domain"}
 {"level":"info","message":"Test Case Completed : Enter email with incorrect domain Status : interrupted"}
+{"level":"info","message":"Test Case Started : Verify Login Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Executing Step : Enter gmail and password"}
+{"level":"info","message":"Test Case Completed : Verify Login Page Status : failed"}
+{"level":"info","message":"Test Case Started : Enter email with incorrect domain"}
+{"level":"info","message":"Test Case Completed : Enter email with incorrect domain Status : failed"}
+{"level":"info","message":"Test Case Started : Enter email with correct domain but incorrect password"}
+{"level":"info","message":"Test Case Completed : Enter email with correct domain but incorrect password Status : interrupted"}
+{"level":"info","message":"Test Case Started : Verify Login Page"}
+{"level":"info","message":"Executing Step : Navigate to Application"}
+{"level":"info","message":"Test Case Completed : Verify Login Page Status : interrupted"}

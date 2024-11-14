@@ -1,0 +1,25 @@
+name: CI
+on:  
+  push:
+    branches: [master]
+  pull_request:
+    branches: [main]
+jobs: 
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20.17.0    
+      - name: Install
+        run: npm install
+      - name: cmd
+        run: dir 
+      - name: Test
+        run: npx cross-env ENV=stage npm run test:serial  
+      - uses: actions/upload-artifact@v3
+        with:
+         name: html-reports
+         path: html-report/
