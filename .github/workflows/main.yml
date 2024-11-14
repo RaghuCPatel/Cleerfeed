@@ -1,27 +1,40 @@
 name: CI
+
 on:  
   push:
     branches: [master]
   pull_request:
     branches: [main]
-jobs: 
+
+jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: 20.17.0    
+          node-version: '20.17.0'
+
       - name: Set ENV environment variable
         run: echo "ENV=stage" >> $GITHUB_ENV
-      - name: Install
+
+      - name: Install dependencies
         run: npm install
-      - name: cmd
-        run: dir 
-      - name: Test
-        run: npm run test:single --ENV=stage
-      - uses: actions/upload-artifact@v3
+
+      - name: List directory contents (for debugging)
+        run: ls -al
+
+      - name: Run tests
+        run: npm run test:single
+        env:
+          ENV: stage  # Pass the environment variable correctly here
+
+      - name: Upload HTML reports
+        uses: actions/upload-artifact@v3
         with:
-         name: html-reports
-         path: html-report/
+          name: html-reports
+          path: html-report/
