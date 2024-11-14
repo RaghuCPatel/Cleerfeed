@@ -45,6 +45,9 @@ jobs:
             lsb-release \
             wget
 
+      - name: Install Playwright browsers and dependencies
+        run: npx playwright install --with-deps
+
       - name: Set ENV environment variable
         run: echo "ENV=stage" >> $GITHUB_ENV
 
