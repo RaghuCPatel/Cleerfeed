@@ -2,7 +2,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 import { testConfig } from './testConfig';
 //import { OrtoniReportConfig } from 'ortoni-report';
 
-const ENV = process.env.npm_config_ENV;
+const ENV = process.env.ENV;
 
 console.log(ENV)
 
