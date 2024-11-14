@@ -19,6 +19,32 @@ jobs:
         with:
           node-version: '20.17.0'
 
+      - name: Install required dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            ffmpeg \
+            libx11-dev \
+            libxcomposite-dev \
+            libxdamage-dev \
+            libxi-dev \
+            libxtst-dev \
+            libnss3 \
+            libatk-bridge2.0-0 \
+            libatk1.0-0 \
+            libcups2 \
+            libdbus-1-3 \
+            libgdk-pixbuf2.0-0 \
+            libnspr4 \
+            libxrandr2 \
+            libxss1 \
+            fonts-liberation \
+            libappindicator3-1 \
+            libasound2 \
+            libatspi2.0-0 \
+            lsb-release \
+            wget
+
       - name: Set ENV environment variable
         run: echo "ENV=stage" >> $GITHUB_ENV
 
@@ -28,10 +54,11 @@ jobs:
       - name: List directory contents (for debugging)
         run: ls -al
 
-      - name: Run tests
-        run: npm run test:single
+      - name: Run tests with correct environment
+        run: |
+          npm run test:single --npm_config_ENV=stage
         env:
-          npm_config_ENV: stage  # Pass the environment variable correctly here
+          npm_config_ENV: stage  # Pass the correct ENV variable for cross-env
 
       - name: Upload HTML reports
         uses: actions/upload-artifact@v3
