@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[1277],{71277:function(e){e.exports=JSON.parse('{"CONNECT_SLACK":"Connect your Slack workspace to start using ClearFeed.","BOT_SCOPE_MISSING":"Permissions for the ClearFeed Slack App have changed. Please reinstall the app to stay up to date with new features."}')}}]);
