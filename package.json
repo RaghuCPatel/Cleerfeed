@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx playwright test",
-    "test:single": "cross-env ENV=$npm_config_ENV npx playwright test Login.test.ts --project=Chrome",
+    "test:single": "cross-env ENV=$npm_config_ENV npx playwright test Onboarding.test.ts --project=Chrome",
     "test:parallel": "npx playwright test --grep @Smoke --project=Chrome",
     "test:serial": "npx playwright test --grep @Smoke --workers=1 --project=Chrome",
     "test:ui": "npx playwright test --grep @Smoke --ui",
@@ -35,6 +35,8 @@
     "ortoni-report": "^2.0.2",
     "pdfjs-dist-es5": "^2.13.216",
     "pg": "^8.12.0",
+    "playwright-extra": "^4.3.6",
+    "playwright-extra-plugin-stealth": "^0.0.1",
     "typescript": "^5.5.4",
     "winston": "^3.14.2"
   },

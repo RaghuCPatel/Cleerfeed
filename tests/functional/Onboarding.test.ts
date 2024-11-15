@@ -1,5 +1,9 @@
 import test from '@lib/BaseTest';
 import { deleteAccountAPI } from 'tests/api/API.test';
+import { chromium } from 'playwright-extra';
+import stealth from 'playwright-extra-plugin-stealth';
+
+chromium.use(stealth);
 
 const testData = require('../../Environment_variables/staging/testData.json');
 
