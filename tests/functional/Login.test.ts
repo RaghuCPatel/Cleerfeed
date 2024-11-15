@@ -22,6 +22,7 @@ test(`Verify Login Page`, { tag: '@Smoke'}, async ({ loginPage, webActions }) =>
 
  });
 
+ 
  test(`Enter email with incorrect domain`, { tag: '@Smoke'}, async ({ loginPage, webActions }) => {
         await loginPage.navigateToURL();
         const newtab = await loginPage.switchToGoogleLoginPage();
