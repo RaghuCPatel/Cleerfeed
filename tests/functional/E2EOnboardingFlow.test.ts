@@ -4,7 +4,7 @@ import testData from '../../Environment_variables/staging/onBoardingTestData.jso
 let CFPage;
 
 test.describe('ClearFeed Onboarding E2E Tests', () => {
-    test(`Verify Created Channel,Request,Workflow and Collection Settings Using Customer Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test.only(`Verify Created Channel,Request,Workflow and Collection Settings Using Customer Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
@@ -29,7 +29,7 @@ test.describe('ClearFeed Onboarding E2E Tests', () => {
         });
     });
 
-    test(`Verify Created Channel,Workflow and Collection Settings Using Employee Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test.only(`Verify Created Channel,Workflow and Collection Settings Using Employee Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
