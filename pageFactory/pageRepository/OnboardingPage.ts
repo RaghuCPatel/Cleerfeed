@@ -43,6 +43,7 @@ export class OnboardingPage {
     async loginWithGoogle(page2: Page, email: string, password: string) {
         await page2.locator('//input[@id="email"]').fill(testData.UserEmail);
         await page2.locator(`//span[contains(text(),'Send login link to email')]`).click();
+        await page2.waitForTimeout(2000);
         const page5 = await this.context.newPage();
         await page5.goto(await webActions.extractLink());
         await webActions.deleteInbox()
