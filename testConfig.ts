@@ -13,16 +13,3 @@ export const testConfig = {
     dbName: ``
 };
 
-// Dynamically export the environment based on passed ENV
-export const getEnvConfig = (env: string) => {
-    switch (env) {
-        case 'qa':
-            return testConfig.qa;
-        case 'stage':
-            return testConfig.stage;
-        case 'dev':
-            return testConfig.dev;
-        default:
-            throw new Error(`Unknown environment: ${env}`);
-    }
-};

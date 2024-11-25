@@ -2,10 +2,7 @@ import { PlaywrightTestConfig, devices } from '@playwright/test';
 import { testConfig } from './testConfig';
 import { OrtoniReportConfig } from 'ortoni-report';
 
-const ENV = process.env.ENV;
-
-console.log('ENV:', ENV);  // Log the environment variable
-console.log('testConfig:', testConfig);  // Log the entire testConfig object
+const ENV = process.env.npm_config_ENV;
 
 if (!ENV || ![`qa`, 'stage', `dev`, `qaApi`, `devApi`].includes(ENV)) {
   console.log(`Please provide a correct environment value after command like "--ENV=qa|stage|dev|qaApi|devApi"`);
@@ -28,7 +25,7 @@ const config: PlaywrightTestConfig = {
   globalSetup: `./global-setup`,
 
   //sets timeout for each test case
-  timeout: 1700000,
+  timeout: 420000,
 
   //number of retries if test case fails
   retries: 0,
