@@ -1,0 +1,35 @@
+{
+    "UserEmail": "2cc1c4e7-f7fe-4550-a30d-813e9f235293@mailslurp.net",
+    "SlackURL": "https://clearfeedui-igs.slack.com",
+    "ExistingUserEmail": "testcf620@gmail.com",
+    "password": "U2FsdGVkX1907TXVYNea6tWNCN4QEiP61R65QVEq/TQ=",
+    "sandBoxPassword": "U2FsdGVkX1/A94DEhG9v86rW7I7dCd/OE8w7VppJpy8=",
+    "existingUserPassword": "U2FsdGVkX1/1CbE/r498+6kCuDKLtenoP3JIuyUHZ1w=",
+    "phone": "7676767676",
+    "token": "U2FsdGVkX18XZNoXPUdSkzvJHW/QPdnz+rZQSDA5Sw3178dz+9AmP8uMkgblrpLGHAzoqxXf1hogl9B+BqmurdK82Qdo9bBIvQ1KW6NkMmEv5lEcBTyFf7pf7LzSzNikShuYnvcfNN5URLZWuj7QSBK/wx5HcvIqMboVInk0PdmHro5Oc9lx52hpSN7nimHXWw5XiUV1ecB/qQKm9XOir/wBKb91R1gBVnXI3ukMDTRKACo/6ih9Wwa/4vxpxqERE5HWe+nPoliacJpMXfmJHTjRBEvHa24QCrZ7hgaFC5U=",
+    "radioButtonValues": [
+        "Blog",
+        "Google Sponsored Link",
+        "X",
+        "Referral",
+        "Reddit",
+        "Linkedin",
+        "Email",
+        "Other"
+    ],
+    "radioButtonValuesForCase": [
+        "ITSM",
+        "Engineering",
+        "Support",
+        "Customer Success",
+        "Pre Sales",
+        "Sales Ops",
+        "Other"
+    ],
+    "requestDescription": "Test",
+    "AddInvite": "ishita@clearfeed.ai",
+    "AssignedUser": "clearfeed01",
+    "apiKey": "c0693f634601fae3dce3e600c3def875f82f5aab522763947b368cd3497a09cd",
+    "mailslurpId": "2cc1c4e7-f7fe-4550-a30d-813e9f235293@mailslurp.net",
+    "inboxId": "2cc1c4e7-f7fe-4550-a30d-813e9f235293"
+}

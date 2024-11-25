@@ -1,8 +1,6 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-
-
-const qaTestData = require('../../Environment_variables/staging/testData.json');
+import qaTestData from '../../Environment_variables/staging/onBoardingTestData.json';
 
 
 let webActions: WebActions;
@@ -22,14 +20,14 @@ export class LoginPage {
     readonly PASSWORD: Locator;
     readonly PASSWORD_ERROR: Locator;
     readonly CLEARFEED_SCREEN: Locator;
-    
-    
+
+
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
         this.context = context;
         webActions = new WebActions(this.page, this.context);
-        
+
         // Initialize locators
         this.CONTINUE_WITH_GOOGLE = page.locator('//*[contains(text(),"Continue with Google")]');
         this.CONTINUE_WITH_MICROSOFT = page.locator('//*[contains(text(),"Continue with Microsoft")]');
@@ -43,7 +41,7 @@ export class LoginPage {
         this.PASSWORD_ERROR = page.locator('//*[contains(text(),"Wrong password. Try again or click Forgot")]');
         this.CLEARFEED_SCREEN = page.locator('//a//span[text()="Inbox"]');
     }
-    
+
     async navigateToURL(): Promise<void> {
         await this.page.goto("/");
     }
@@ -78,31 +76,15 @@ export class LoginPage {
     }
     async loginWithGoogle(email: string, password: string): Promise<void> {
         await this.page.waitForTimeout(5000);
-        console.log(`GMAILID_TEXTBOX visible: ${await this.GMAILID_TEXTBOX.isVisible()}`);
         await this.GMAILID_TEXTBOX.fill(email);
         await this.NEXT_BUTTON.click();
         await this.PASSWORD.waitFor({ state: 'visible', timeout: 20000 });
         await this.PASSWORD.fill(password);
         await this.NEXT_BUTTON.click();
     }
-    
-    async loginWithinvalidDomain(email: string): Promise<void> {
-        await this.GMAILID_TEXTBOX.waitFor({ state: 'visible', timeout: 10000 });
-        await this.GMAILID_TEXTBOX.fill(email);
-        await this.NEXT_BUTTON.click();
-       
-    }
 
-    async VerifyGoogleLogin(): Promise<void> {
+    async verifyGoogleLogin(): Promise<void> {
         await expect(this.CLEARFEED_SCREEN).toBeVisible({ timeout: 50000 });
-    }
-
-    async VerifyinvalidDomainError(): Promise<void> {
-        await expect(this.ERROR_TEXT).toBeVisible({ timeout: 5000 });
-    }
-
-    async verifyClearFeedScreenwithValidEmail(): Promise<void> {
-        await expect(this.CLEARFEED_SCREEN).toBeVisible({ timeout: 10000 });
     }
 
 }

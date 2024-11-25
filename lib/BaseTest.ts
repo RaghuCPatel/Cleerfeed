@@ -9,7 +9,7 @@ const test = baseTest.extend<{
     webActions: WebActions;
     loginPage: LoginPage;
     onboardingPage: OnboardingPage;
-    newWorkspacePage:NewWorkspacePage;
+    newWorkspacePage: NewWorkspacePage;
     makeAxeBuilder: AxeBuilder;
     testInfo: TestInfo;
 }>({
