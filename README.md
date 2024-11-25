@@ -33,8 +33,6 @@
 
 ## About the Project
 
-
-
 Playwright Demo - This project is based on Microsoft Playwright which enables reliable end-to-end testing for modern web apps.
 
 Top Features:
