@@ -22,7 +22,6 @@ export class LoginPage {
     readonly CLEARFEED_SCREEN: Locator;
 
 
-
     constructor(page: Page, context: BrowserContext) {
         this.page = page;
         this.context = context;
@@ -42,10 +41,15 @@ export class LoginPage {
         this.CLEARFEED_SCREEN = page.locator('//a//span[text()="Inbox"]');
     }
 
+    /**Method to Navigate application page */
     async navigateToURL(): Promise<void> {
         await this.page.goto("/");
     }
 
+    /**
+     * Method to select LoginType
+     * @param loginType 
+     */
     async clickOnLoginType(loginType: string): Promise<void> {
         switch (loginType) {
             case "Google":
@@ -66,6 +70,10 @@ export class LoginPage {
         }
     }
 
+    /**
+     * Method to Google Login Page
+     * @returns 
+     */
     async switchToGoogleLoginPage() {
         const [newPage] = await Promise.all([
             this.context.waitForEvent('page'),
@@ -74,6 +82,12 @@ export class LoginPage {
         await newPage.waitForLoadState();
         return new exports.LoginPage(newPage);
     }
+
+    /**
+     * Navigate to enter Google Login Credential
+     * @param email 
+     * @param password 
+     */
     async loginWithGoogle(email: string, password: string): Promise<void> {
         await this.page.waitForTimeout(5000);
         await this.GMAILID_TEXTBOX.fill(email);
@@ -83,6 +97,9 @@ export class LoginPage {
         await this.NEXT_BUTTON.click();
     }
 
+    /**
+     * Method to verify google login as an existing user
+     */
     async verifyGoogleLogin(): Promise<void> {
         await expect(this.CLEARFEED_SCREEN).toBeVisible({ timeout: 50000 });
     }

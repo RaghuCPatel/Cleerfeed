@@ -44,6 +44,9 @@ export class NewWorkspacePage {
 
     }
 
+    /**
+     * Method to enter OTP
+     */
     async enterOTP() {
         if (await this.slackRecognizeTitle.isVisible({ timeout: 5000 })) {
             let OTP = await webActions.extractOTP();
@@ -63,6 +66,9 @@ export class NewWorkspacePage {
         }
     }
 
+    /**
+     * Method to Navigate Slack Workspace
+     */
     async navigateToSlackAndClickGoogle() {
         await this.page.goto(testData.SlackURL);
         await this.page.waitForTimeout(3000);
@@ -90,10 +96,16 @@ export class NewWorkspacePage {
         }
     }
 
+    /**
+     * Method to verify Slack Page Title
+     */
     async verifySlackPageTitle() {
         await expect(this.page).toHaveTitle('Login | Slack');
     }
 
+    /**
+     * Method to verify Clearfeed Staging Message
+     */
     async verifyClearfeedStagingMessage() {
         await this.clickOnBottomUnreadBtn.click();
         await this.clickOnClearfeedStaging.click();
@@ -103,11 +115,18 @@ export class NewWorkspacePage {
         await this.clickOnBottomUnreadBtn.click();
     }
 
+    /**
+     * Method to navigate from Slack to Clearfeed
+     */
     async againNavigateToCF() {
         const pages = await this.context.pages();
         await pages[1].bringToFront();
     }
 
+
+    /**
+     * Method to navigate from Slack to Clearfeed
+     */
     async againNavigateToSlack() {
         const pages = await this.context.pages();
         await pages[0].bringToFront();

@@ -52,7 +52,7 @@ jobs:
           Xvfb :99 -ac & 
           export DISPLAY=:99
           # Run Playwright tests in headed mode
-          npm run test:single --npm_config_ENV=stage --headed
+          npm run test:serial --npm_config_ENV=stage --headed
         env:
           npm_config_ENV: stage
 
