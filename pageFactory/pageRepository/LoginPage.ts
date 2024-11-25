@@ -28,7 +28,6 @@ export class LoginPage {
         this.context = context;
         webActions = new WebActions(this.page, this.context);
 
-        // Initialize locators
         this.CONTINUE_WITH_GOOGLE = page.locator('//*[contains(text(),"Continue with Google")]');
         this.CONTINUE_WITH_MICROSOFT = page.locator('//*[contains(text(),"Continue with Microsoft")]');
         this.CONTINUE_WITH_SAML = page.locator('//*[contains(text(),"Continue with SAML SSO")]');
