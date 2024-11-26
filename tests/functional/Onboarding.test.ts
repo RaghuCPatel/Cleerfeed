@@ -4,7 +4,7 @@ import testData from '../../Environment_variables/staging/onBoardingTestData.jso
 let CFPage;
 
 test.describe('ClearFeed Onboarding Tests', () => {
-    test(`Verify Login Page with new Google user Using Customer Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test.only(`Verify Login Page with new Google user Using Customer Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
@@ -21,7 +21,7 @@ test.describe('ClearFeed Onboarding Tests', () => {
         });
     });
 
-    test(`Verify Login Page with new Google user Using Employee Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test.only(`Verify Login Page with new Google user Using Employee Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
@@ -38,7 +38,7 @@ test.describe('ClearFeed Onboarding Tests', () => {
         });
     });
 
-    test(`Verify Login Page with new Google user Using Customer Support and Standalone helpdesk without selecting Glove support opt `, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test.only(`Verify Login Page with new Google user Using Customer Support and Standalone helpdesk without selecting Glove support opt `, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
@@ -55,7 +55,7 @@ test.describe('ClearFeed Onboarding Tests', () => {
         });
     });
 
-    test(`Verify Login Page with new Google user Using Employee Support and Standalone helpdesk without selecting Glove support opt`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test.only(`Verify Login Page with new Google user Using Employee Support and Standalone helpdesk without selecting Glove support opt`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
