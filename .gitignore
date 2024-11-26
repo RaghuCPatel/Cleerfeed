@@ -3,5 +3,8 @@ test-results/
 allure-results/
 allure-report/
 Downloads/
-html-report.zip/
+html-report/
 visualComparison/
+logs/
+OrtoniHtmlReport/
+package-lock.json/

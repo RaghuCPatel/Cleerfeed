@@ -1,3 +1,0 @@
-{"sent_at":"2024-09-20T06:47:36.631Z","sdk":{"name":"sentry.javascript.react","version":"7.81.1"}}
-{"type":"session"}
-{"sid":"cbbb6f91dddb43ce9add30b64484b3d8","init":true,"started":"2024-09-20T06:47:36.630Z","timestamp":"2024-09-20T06:47:36.630Z","status":"ok","errors":0,"attrs":{"release":"latest","environment":"staging","user_agent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/128.0.6613.18 Safari/537.36"}}

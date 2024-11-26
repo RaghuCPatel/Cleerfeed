@@ -1,4 +1,4 @@
-<!-- TABLE OF CONTENTS -->
+<!--- TABLE OF CONTENTS --->
 
 <h2>
     <details open="open">

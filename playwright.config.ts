@@ -25,16 +25,16 @@ const config: PlaywrightTestConfig = {
   globalSetup: `./global-setup`,
 
   //sets timeout for each test case
-  timeout: 1700000,
+  timeout: 540000,
 
   //number of retries if test case fails
   retries: 0,
 
   //Reporters
-  reporter: [[`./CustomReporterConfig.ts`], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }],['ortoni-report', reportConfig],['list']],
+  reporter: [[`./CustomReporterConfig.ts`], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }], ['ortoni-report', reportConfig], ['list']],
 
-  workers:1,
-  
+  workers: 1,
+
   projects: [
     {
       name: `Chrome`,
@@ -168,6 +168,6 @@ const config: PlaywrightTestConfig = {
       }
     }
   ],
-  
+
 };
 export default config;
