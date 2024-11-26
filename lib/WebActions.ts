@@ -108,19 +108,15 @@ export class WebActions {
 
     async createMailslurpInbox() {
         mailslurp = new MailSlurp({ apiKey: testData.apiKey });
-        const customEmail = testData.mailslurpId; // Replace with your desired email address 
+        const customEmail = testData.userEmail;
         const createdinbox = await mailslurp.createInbox(customEmail);
         inboxId = createdinbox.id;
-        console.log("Inbox", inboxId);
     }
 
     async extractLink() {
-        const inbox = await mailslurp.waitForLatestEmail(testData.inboxId, 10000);
+        const inbox = await mailslurp.waitForLatestEmail(inboxId, 10000);
         const loc = cheerio.load(inbox.body);
-
-        // Extract a specific link (e.g., from an anchor tag)
         const link = loc('a').attr('href');
-        console.log(`Extracted link: ${link}`);
         return link;
     }
 
@@ -129,15 +125,9 @@ export class WebActions {
     }
 
     async extractOTP() {
-        const inbox = await mailslurp.waitForLatestEmail(testData.inboxId, 10000);
-
-        // const link = loc('a').text();
+        const inbox = await mailslurp.waitForLatestEmail(inboxId, 10000);
         const parts = inbox.subject.split(" ");
-
-        // The OTP is the last part of the split string
         const otp = parts[parts.length - 1];
-
-        console.log("Extracted OTP:", otp);
         return otp;
     }
 

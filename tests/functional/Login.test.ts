@@ -1,4 +1,5 @@
 import test from '@lib/BaseTest';
+
 import testData from '../../Environment_variables/staging/onBoardingTestData.json';
 
 test.describe('ClearFeed Login Tests', () => {
@@ -8,7 +9,8 @@ test.describe('ClearFeed Login Tests', () => {
         });
         await test.step(`Enter gmail and password`, async () => {
             const newtab = await loginPage.switchToGoogleLoginPage();
-            await newtab.loginWithGoogle(testData.ExistingUserEmail, await webActions.decipherPassword(testData.existingUserPassword));
+
+            await newtab.loginWithGoogle(testData.existingUserEmail, await webActions.decipherPassword(testData.sandBoxPassword));
         });
         await test.step(`Verify if ClearFeed Home Page is displayed using Google Login`, async () => {
             await loginPage.verifyGoogleLogin();

@@ -1,7 +1,7 @@
 {
-    "UserEmail": "2cc1c4e7-f7fe-4550-a30d-813e9f235293@mailslurp.net",
-    "SlackURL": "https://clearfeedui-igs.slack.com",
-    "ExistingUserEmail": "testcf620@gmail.com",
+    "userEmail": "2cc1c4e7-f7fe-4550-a30d-813e9f235293@mailslurp.net",
+    "slackURL": "https://clearfeedui-igs.slack.com",
+    "existingUserEmail": "testcf620@gmail.com",
     "password": "U2FsdGVkX1907TXVYNea6tWNCN4QEiP61R65QVEq/TQ=",
     "sandBoxPassword": "U2FsdGVkX1/A94DEhG9v86rW7I7dCd/OE8w7VppJpy8=",
     "existingUserPassword": "U2FsdGVkX1/1CbE/r498+6kCuDKLtenoP3JIuyUHZ1w=",
@@ -27,9 +27,6 @@
         "Other"
     ],
     "requestDescription": "Test",
-    "AddInvite": "ishita@clearfeed.ai",
-    "AssignedUser": "clearfeed01",
-    "apiKey": "4a76ce4d62aa5b9546573083731ad14fa08e531fed45c6439d2cdb68d6d10346",
-    "mailslurpId": "2cc1c4e7-f7fe-4550-a30d-813e9f235293@mailslurp.net",
-    "inboxId": "2cc1c4e7-f7fe-4550-a30d-813e9f235293"
+    "addInvite": "ishita@clearfeed.ai",
+    "apiKey": "4a76ce4d62aa5b9546573083731ad14fa08e531fed45c6439d2cdb68d6d10346"
 }

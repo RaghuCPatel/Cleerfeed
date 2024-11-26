@@ -4,13 +4,13 @@ import testData from '../../Environment_variables/staging/onBoardingTestData.jso
 let CFPage;
 
 test.describe('ClearFeed Onboarding Tests', () => {
-    test.only(`Verify Login Page with new Google user Using Customer Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test(`Verify Onboarding Page with Magic Link  Using Customer Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
-        await test.step(`Navigate to ClearFeed application and Enter Google credentials`, async () => {
+        await test.step(`Navigate to ClearFeed application Using Magic link`, async () => {
             CFPage = await onboardingPage.navigateToClearFeedAndClickGoogle();
-            await onboardingPage.loginToClearFeedWithGoogle(CFPage, testData.UserEmail, await webActions.decipherPassword(testData.password));
+            await onboardingPage.loginToClearFeedWithGoogle(CFPage, testData.userEmail, await webActions.decipherPassword(testData.password));
             await onboardingPage.verifyHaveYouHerePage(CFPage, Number(testData.phone), "india");
             await onboardingPage.verifyGloveSupportOpt(CFPage)
             await onboardingPage.verifyAuthorizeSlack(CFPage);
@@ -21,13 +21,13 @@ test.describe('ClearFeed Onboarding Tests', () => {
         });
     });
 
-    test.only(`Verify Login Page with new Google user Using Employee Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test(`Verify Onboarding Page with Magic Link Using Employee Support and Standalone helpdesk`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
-        await test.step(`Navigate to ClearFeed application and Enter Google credentials`, async () => {
+        await test.step(`Navigate to ClearFeed application Using Magic link`, async () => {
             CFPage = await onboardingPage.navigateToClearFeedAndClickGoogle();
-            await onboardingPage.loginToClearFeedWithGoogle(CFPage, testData.UserEmail, await webActions.decipherPassword(testData.password));
+            await onboardingPage.loginToClearFeedWithGoogle(CFPage, testData.userEmail, await webActions.decipherPassword(testData.password));
             await onboardingPage.verifyHaveYouHerePage(CFPage, Number(testData.phone), "india");
             await onboardingPage.verifyGloveSupportOpt(CFPage)
             await onboardingPage.verifyAuthorizeSlack(CFPage);
@@ -38,13 +38,13 @@ test.describe('ClearFeed Onboarding Tests', () => {
         });
     });
 
-    test.only(`Verify Login Page with new Google user Using Customer Support and Standalone helpdesk without selecting Glove support opt `, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test(`Verify Onboarding Page with Magic Link Using Customer Support and Standalone helpdesk without selecting Glove support opt `, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
-        await test.step(`Navigate to ClearFeed application and Enter Google credentials`, async () => {
+        await test.step(`Navigate to ClearFeed application Using Magic link`, async () => {
             CFPage = await onboardingPage.navigateToClearFeedAndClickGoogle();
-            await onboardingPage.loginToClearFeedWithGoogle(CFPage, testData.UserEmail, await webActions.decipherPassword(testData.password));
+            await onboardingPage.loginToClearFeedWithGoogle(CFPage, testData.userEmail, await webActions.decipherPassword(testData.password));
             await onboardingPage.verifyHaveYouHerePage(CFPage, Number(testData.phone), "india");
             await onboardingPage.clickOnGloveSupportOpt(CFPage);
             await onboardingPage.verifyAuthorizeSlack(CFPage);
@@ -55,13 +55,13 @@ test.describe('ClearFeed Onboarding Tests', () => {
         });
     });
 
-    test.only(`Verify Login Page with new Google user Using Employee Support and Standalone helpdesk without selecting Glove support opt`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
+    test(`Verify Onboarding Page with Magic Link Using Employee Support and Standalone helpdesk without selecting Glove support opt`, { tag: '@Smoke' }, async ({ newWorkspacePage, onboardingPage, webActions }) => {
         await test.step(`Navigate to existing Slack workspace`, async () => {
             await newWorkspacePage.navigateToSlackAndClickGoogle();
         });
-        await test.step(`Navigate to ClearFeed application and Enter Google credentials`, async () => {
+        await test.step(`Navigate to ClearFeed application Using Magic link`, async () => {
             CFPage = await onboardingPage.navigateToClearFeedAndClickGoogle();
-            await onboardingPage.loginToClearFeedWithGoogle(CFPage, testData.UserEmail, await webActions.decipherPassword(testData.password));
+            await onboardingPage.loginToClearFeedWithGoogle(CFPage, testData.userEmail, await webActions.decipherPassword(testData.password));
             await onboardingPage.verifyHaveYouHerePage(CFPage, Number(testData.phone), "india");
             await onboardingPage.clickOnGloveSupportOpt(CFPage);
             await onboardingPage.verifyAuthorizeSlack(CFPage);

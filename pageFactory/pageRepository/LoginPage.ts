@@ -1,10 +1,7 @@
 import { Page, BrowserContext, Locator, expect } from '@playwright/test';
 import { WebActions } from "@lib/WebActions";
-import qaTestData from '../../Environment_variables/staging/onBoardingTestData.json';
-
 
 let webActions: WebActions;
-let testData = qaTestData;
 
 export class LoginPage {
     readonly page: Page;
@@ -20,7 +17,6 @@ export class LoginPage {
     readonly PASSWORD: Locator;
     readonly PASSWORD_ERROR: Locator;
     readonly CLEARFEED_SCREEN: Locator;
-
 
     constructor(page: Page, context: BrowserContext) {
         this.page = page;

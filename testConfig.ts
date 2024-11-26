@@ -1,5 +1,5 @@
 export const testConfig = {
-    qa: `https://demoqa.com`,
+    qa: ``,
     stage: 'https://staging.aws.clearfeed.app',
     dev: ``,
     qaApi: ``,
@@ -12,4 +12,3 @@ export const testConfig = {
     dbPort: ``,
     dbName: ``
 };
-

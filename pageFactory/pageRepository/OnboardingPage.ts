@@ -41,7 +41,7 @@ export class OnboardingPage {
      * @param password 
      */
     async loginWithGoogle(page2: Page, email: string, password: string) {
-        await page2.locator('//input[@id="email"]').fill(testData.UserEmail);
+        await page2.locator('//input[@id="email"]').fill(testData.userEmail);
         await page2.locator(`//span[contains(text(),'Send login link to email')]`).click();
         await page2.waitForTimeout(2000);
         const page5 = await this.context.newPage();
@@ -223,26 +223,6 @@ export class OnboardingPage {
     }
 
     /**
-     * Navigate from Clearfeed to Slack workspace
-     * @param page2 
-     */
-    async navigateBack(page2: Page) {
-        await page2.waitForTimeout(5000);
-        const pages = await this.context.pages();
-        await pages[0].bringToFront();
-    }
-
-    /**
-     * Method to navigate from Slack to Clearfeed
-     * @param page2 
-     */
-    async againNavigateToCF(page2: Page): Promise<void> {
-        const pages = await this.context.pages();
-        await pages[1].bringToFront();
-        await page2.waitForTimeout(1000);
-    }
-
-    /**
      * Method to verify onboarding page using standalone helpdesk
      * @param page2 
      * @param accountSetup 
@@ -257,23 +237,6 @@ export class OnboardingPage {
         await page2.locator('//*[@class="ant-radio-input"][@value="STANDALONE"]').click();
         await this.verifySecureFromDayOne(page2, 2);
         await page2.locator('//span[contains(text(),"Continue")]').click();
-    }
-
-    /**
-     * Method to verify onboarding page using Extenal tools
-     * @param page2 
-     */
-    async verifyAccountSetUpByUsingExternalTools(page2: Page): Promise<void> {
-        await page2.locator('//h2[@class="ant-typography mt-1 mb-1"]').isVisible();
-        await page2.locator('//*[contains(text(),"How do you plan to use ClearFeed?")]').isVisible();
-        await page2.evaluate(() => {
-            window.scrollBy(0, 1000);
-        });
-        await page2.locator('(//*[@class="ant-radio-input"][@value="EXTERNAL"])[2]').click();
-        await page2.waitForTimeout(2000);
-        await page2.locator('(//span[contains(text(),"Zendesk")])[2]').click();
-        await page2.locator('(//div[contains(text(),"Zendesk")])[1]').click();
-        await page2.locator('//span[contains(text(),"Connect")]').isVisible();
     }
 
     /**
@@ -300,7 +263,7 @@ export class OnboardingPage {
         await page2.locator('//*[contains(text(),"Email Addresses")]').isVisible();
         await page2.locator('//*[contains(text(),"+ Add Invite")]').click();
         await page2.locator('(//button[@type="button"])[1]').isVisible();
-        await page2.locator('//input[@id="dynamic_form_nest_item_users_0_email"]').fill(testData.AddInvite);
+        await page2.locator('//input[@id="dynamic_form_nest_item_users_0_email"]').fill(testData.addInvite);
         await page2.locator('//*[contains(text(),"Submit")]').click();
         await page2.locator('//div[@class="ant-alert-message"]').isVisible();
         await page2.locator(`//span[contains(text(),'Skip')]`).click();
@@ -340,132 +303,6 @@ export class OnboardingPage {
         await page2.waitForLoadState('load');
         await page2.locator('//span[text()="Inbox"]').isVisible();
         await page2.waitForLoadState('load');
-    }
-
-    /**
-     * Method to verify Dashboard and create a Request
-     * @param page2 
-     */
-    async verifyDashboardAndCreateRequst(page2: Page) {
-        await page2.waitForTimeout(1000);
-        await page2.locator('//*[contains(text(),"New Request")]').click();
-        await page2.locator('//h3[contains(text(),"Request")]').isVisible();
-        await page2.locator('//*[contains(text(),"Create Request")]').click();
-        await page2.locator('//*[contains(text(),"Request Description is required")]').isVisible();
-        await page2.locator('//button[@class="ant-modal-close"]//span//span').isVisible();
-        await page2.locator('//label[contains(text(),"Request Channel")]').isVisible();
-        await page2.locator('//input[@id="topic_id"]').click();
-        await page2.waitForTimeout(1000);
-        await page2.locator('(//div[@class="ant-select-item-option-content"]//div)[2]').click();
-        await this.clickOnCloseIcon(page2, 4)
-        await page2.locator('//label[contains(text(),"Request Description")]').isVisible();
-        await page2.locator('//div[@class="ql-container ql-snow"]//div[1]').fill(testData.requestDescription);
-        await page2.waitForTimeout(1000);
-        await page2.locator(' //label[contains(text(),"Status")]').isVisible();
-        await page2.locator('//label[contains(text(),"Priority")]').isVisible();
-        await page2.locator('//label[contains(text(),"Assignee")]').isVisible();
-        await page2.locator('//input[@id="assignee_user_id"]').click();
-        await page2.locator('(//*[contains(text(),"clearfeed01")])[1]').click();
-        await page2.locator('//*[contains(text(),"Create Request")]').click();
-        await page2.locator('//*[contains(text(),"Request has been created successfully.")]').isVisible();
-        await page2.waitForTimeout(3000);
-        let actRequestedChannelname = await page2.locator('//span[@class="break-word"]').textContent();
-        await expect(actRequestedChannelname).toContain(requestchannelname);
-    }
-
-    /**
-     * Method to close popup
-     * @param page2 
-     * @param index 
-     */
-    async clickOnCloseIcon(page2: Page, index: number) {
-        await page2.waitForTimeout(10000);
-        await page2.locator(`(//button[@class="ant-modal-close"]//span)[${index}]`).click();
-    }
-
-    /**
-     * Method to verify Collection Setting
-     * @param page2 
-     */
-    async verifyCollectionSetting(page2: Page) {
-        await page2.locator('(//*[contains(text(),"Slack Channels")])[1]').click();
-        await page2.locator('(//div[@class="ant-segmented-group"]//div)[3]').click();
-        let headersText = await page2.$$('//span[@class="ant-collapse-header-text"]');
-        for (let i = 0; i < headersText.length; i++) {
-            await headersText[i].isVisible();
-            await headersText[i].click();
-            await page2.waitForTimeout(1000);
-            await headersText[i].click();
-        }
-    }
-
-    /**
-     * Method to verify Request Channel
-     * @param page2
-     * @param index 
-     */
-    async verifyRequestChannel(page2: Page, index: number) {
-        await page2.locator(`(//span[@class="ant-collapse-header-text"])[${index}]`).click();
-        await page2.waitForTimeout(2000);
-        let actRequestedChannelname = await page2.locator('(//table[@style="table-layout: auto;"]//tbody//tr//td)[1]//span//span').textContent();
-        await expect(actRequestedChannelname).toContain(requestchannelname);
-        await page2.locator('(//span[@class="ant-collapse-header-text"])[3]').click();
-    }
-
-    /**
-     * Method to verify Workflow
-     * @param page2 
-     */
-    async verifyWorkflow(page2: Page) {
-        await page2.locator('//*[contains(text(),"COLLECTIONS")]').isVisible();
-        await page2.locator('(//span[@class="ant-tree-switcher ant-tree-switcher_close"])[2]//span').click();
-        await page2.locator('(//*[contains(text(),"Slack Channels")])[1]').isVisible();
-        await page2.locator('(//span[@class="ant-tree-switcher ant-tree-switcher_close"])[2]//span').click();
-        await page2.locator('(//*[contains(text(),"Slack Channels")])[1]').click();
-        await page2.waitForTimeout(3000);
-        await page2.locator('(//div[@class="ant-segmented-group"]//div)[2]').click();
-        await page2.locator('(//*[contains(text(),"New Workflow")])[1]').click();
-        let workflowOpt = await page2.$$('//div[@class="ant-steps-item-content"]//div');
-        for (let i = 0; i < workflowOpt.length; i++) {
-            await workflowOpt[i].isVisible();
-        }
-        await page2.locator('(//*[contains(text(),"Select a workflow condition")])[1]').isVisible();
-        await page2.locator('(//*[contains(text(),"Priority")])[2]').isVisible();
-        await page2.locator('(//div[@class="ant-select-selector"])[1]').click();
-        await page2.locator('(//*[contains(text(),"Normal")])[1]').click();
-        await page2.locator('(//*[contains(text(),"Contact Stage:")])[1]').isVisible();
-        await page2.locator('(//div[@class="ant-select-selector"])[2]').click();
-        await page2.locator('(//*[contains(text(),"First Contact")])[1]').click();
-        await page2.locator('(//*[contains(text(),"Request Created During:")])[1]').isVisible();
-        await page2.locator('(//div[@class="ant-select-selector"])[3]').click();
-        await page2.locator('(//*[contains(text(),"Any Time")])[2]').click();
-        await page2.locator(`//span[contains(text(),'Continue')]`).click();
-
-        await page2.locator('//div[@class="ant-row ant-row-center ant-row-middle"]//h2').isVisible();
-        let timeInMints = await page2.$$('//div[@class="ant-col ant-col-8 d-flex justify-center align-center"]//button');
-        for (let i = 0; i < timeInMints.length; i++) {
-            await timeInMints[i].isVisible();
-        }
-        await page2.locator('(//div[@class="ant-col ant-col-8 d-flex justify-center align-center"]//button)[2]').click();
-
-        await page2.locator('(//*[contains(text(),"Select an action to be performed")])[1]').isVisible();
-        await page2.locator('(//div[@class="ant-select-selector"])[2]').click();
-        await page2.locator('((//div[@class="ant-select-item-option-content"])[1]//span)[2]').click();
-
-        let reviewWorkflow = await page2.$$('//div[@class="ant-card-body"]');
-        for (let i = 0; i < reviewWorkflow.length; i++) {
-            await reviewWorkflow[i].isVisible();
-        }
-        await page2.locator('(//*[contains(text(),"Publish workflow")])[1]').click();
-        await page2.locator('(//*[contains(text(),"Workflow has been saved successfully")])[1]').isVisible();
-    }
-
-    /** Method to verify Request Channel ID in Slack workspace */
-    async validateRequestChannelID() {
-        await this.page.waitForTimeout(2000);
-        console.log(`//span[contains(text(),"${requestchannelname}")]`);
-        await this.page.locator(`//span[contains(text(),"${requestchannelname}")]`).click()
-        await this.page.waitForTimeout(2000);
     }
 
     /**

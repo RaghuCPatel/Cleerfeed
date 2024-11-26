@@ -50,11 +50,7 @@ export class NewWorkspacePage {
     async enterOTP() {
         if (await this.slackRecognizeTitle.isVisible({ timeout: 5000 })) {
             let OTP = await webActions.extractOTP();
-            console.log("OTP is:", OTP)
-
             await this.page.waitForSelector('input[aria-label="digit 1 of 6"]');
-
-            // Fill OTP fields with the extracted digits
             for (let i = 0; i < OTP.length; i++) {
                 await this.page.locator(`input[aria-label="digit ${i + 1} of 6"]`).fill(OTP[i]);
             }
@@ -62,7 +58,7 @@ export class NewWorkspacePage {
             await this.page.waitForTimeout(30000);
         }
         else {
-            console.log("OTP not found");
+            console.log("OTP Request page is not found");
         }
     }
 
@@ -70,7 +66,7 @@ export class NewWorkspacePage {
      * Method to Navigate Slack Workspace
      */
     async navigateToSlackAndClickGoogle() {
-        await this.page.goto(testData.SlackURL);
+        await this.page.goto(testData.slackURL);
         await this.page.waitForTimeout(3000);
         await webActions.createMailslurpInbox();
         await expect(this.page).toHaveTitle('Sign in to CF-Sandbox | Slack');
@@ -79,7 +75,7 @@ export class NewWorkspacePage {
         await this.page.waitForTimeout(3000);
         await this.EMAIL_BOX.click();
         await this.EMAIL_ID.click();
-        await this.EMAIL_ID.fill(testData.UserEmail);
+        await this.EMAIL_ID.fill(testData.userEmail);
         await this.PASSWORD_BOX.click();
         await this.PASSWORD_BOX.fill(await webActions.decipherPassword(testData.sandBoxPassword));
         await this.SIGNIN_BUTTON.click();
@@ -114,15 +110,6 @@ export class NewWorkspacePage {
         await expect(await this.verifyCFMessage).toBeVisible();
         await this.clickOnBottomUnreadBtn.click();
     }
-
-    /**
-     * Method to navigate from Slack to Clearfeed
-     */
-    async againNavigateToCF() {
-        const pages = await this.context.pages();
-        await pages[1].bringToFront();
-    }
-
 
     /**
      * Method to navigate from Slack to Clearfeed
