@@ -2,9 +2,7 @@ node_modules/
 test-results/
 allure-results/
 allure-report/
-Downloads/
 html-report/
-visualComparison/
 logs/
-OrtoniHtmlReport/
-package-lock.json/
+OrtoniHtmlReport
+package-lock.json

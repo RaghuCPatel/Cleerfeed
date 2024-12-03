@@ -1,12 +1,9 @@
-import rimraf from "rimraf";
-
-let CFPage;
+import rimraf from 'rimraf';
 
 async function globalSetup(): Promise<void> {
-    await new Promise(resolve => {
-        rimraf(`./allure-results`, resolve);
-    });
-
+  await new Promise((resolve) => {
+    rimraf('./allure-results', resolve);
+  });
 }
 
 export default globalSetup;
