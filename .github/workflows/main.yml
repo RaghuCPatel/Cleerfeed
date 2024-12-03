@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest # Switch to a Linux runner (ubuntu-latest)
     strategy: 
       matrix: 
-       shard: [1/4, 2/4]
+       shard: [1/2, 2/2]
 
     concurrency:
       group: ${{ github.workflow }}-${{ github.ref }}
