@@ -3,7 +3,7 @@ import test from '@lib/BaseTest';
 import testData from '../../Environment_variables/staging/onBoardingTestData.json';
 
 test.describe('ClearFeed Login Tests', () => {
-  test.skip(
+  test(
     'Verify Login Page',
     { tag: '@Smoke' },
     async ({ loginPage, webActions }) => {
