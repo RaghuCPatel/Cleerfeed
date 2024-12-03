@@ -6,8 +6,8 @@ import testData from '../../Environment_variables/staging/onBoardingTestData.jso
 
 let CFPage: Page;
 
-test.describe('ClearFeed Onboarding Tests', () => {
-  test.skip(
+//test.describe('ClearFeed Onboarding Tests', () => {
+  test(
     'Verify Onboarding Page with Magic Link  Using Customer Support and Standalone helpdesk',
     { tag: '@Smoke' },
     async ({ newWorkspacePage, onboardingPage }) => {
@@ -35,7 +35,7 @@ test.describe('ClearFeed Onboarding Tests', () => {
     },
   );
 
-  test.skip(
+  test(
     'Verify Onboarding Page with Magic Link Using Employee Support and Standalone helpdesk',
     { tag: '@Smoke' },
     async ({ newWorkspacePage, onboardingPage }) => {
@@ -136,4 +136,4 @@ test.describe('ClearFeed Onboarding Tests', () => {
       console.log('No accountId found, skipping user deletion.');
     }
   });
-});
+//});
