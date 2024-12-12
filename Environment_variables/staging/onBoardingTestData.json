@@ -1,0 +1,84 @@
+{
+
+  "userEmail": "4763ae04-96ae-4e25-ad32-1c242db9082a@mailslurp.net",
+
+  "slackURL": "https://clearfeedui-igs.slack.com",
+
+  "existingUserEmail": "testcf620@gmail.com",
+
+  "password": "U2FsdGVkX1907TXVYNea6tWNCN4QEiP61R65QVEq/TQ=",
+
+  "sandBoxPassword": "U2FsdGVkX19mdrGdzyJ5QdZ2YgO8zFOAo8UJqWC1WtY=",
+
+  "existingUserPassword": "U2FsdGVkX1/1CbE/r498+6kCuDKLtenoP3JIuyUHZ1w=",
+
+  "phone": "7676767676",
+
+  "token": "U2FsdGVkX18XZNoXPUdSkzvJHW/QPdnz+rZQSDA5Sw3178dz+9AmP8uMkgblrpLGHAzoqxXf1hogl9B+BqmurdK82Qdo9bBIvQ1KW6NkMmEv5lEcBTyFf7pf7LzSzNikShuYnvcfNN5URLZWuj7QSBK/wx5HcvIqMboVInk0PdmHro5Oc9lx52hpSN7nimHXWw5XiUV1ecB/qQKm9XOir/wBKb91R1gBVnXI3ukMDTRKACo/6ih9Wwa/4vxpxqERE5HWe+nPoliacJpMXfmJHTjRBEvHa24QCrZ7hgaFC5U=",
+
+  "radioButtonValues": [
+
+    "Blog",
+
+    "Google Sponsored Link",
+
+    "X",
+
+    "Referral",
+
+    "Reddit",
+
+    "Linkedin",
+
+    "Email",
+
+    "Other"
+
+  ],
+
+  "radioButtonValuesForCase": [
+
+    "ITSM",
+
+    "Engineering",
+
+    "Support",
+
+    "Customer Success",
+
+    "Pre Sales",
+
+    "Sales Ops",
+
+    "Other"
+
+  ],
+
+  "requestDescription": "Test",
+
+  "addInvite": "ishita@clearfeed.ai",
+
+  "apiKey": "ebe798c1402fb4c0c42d30c10c3086d00d07c69b248b6d94dc5bce3d9f645683",
+
+  "customerSupport": "Customer Support",
+
+  "employeeSupport": "Employee Support",
+
+  "countryCode": "india",
+
+  "dashboardPopupCloseIconAsCustomer": 4,
+
+  "dashboardPopupCloseIconAsEmployee": 2,
+
+  "requestChannelInSettingAsCustomer": 3,
+
+  "requestChannelInSettingAsEmployee": 1,
+
+  "requestChannelImage": 2,
+
+  "secureFromDayOneImageForAccountSetUpPage": 2,
+
+  "secureFromDayOneImageForAuthorizeSlacPage": 1
+
+}
+ 

@@ -1,49 +1,57 @@
 import { PlaywrightTestConfig, devices } from '@playwright/test';
-import { testConfig } from './testConfig';
 import { OrtoniReportConfig } from 'ortoni-report';
+
+import { testConfig } from './testConfig';
 
 const ENV = process.env.ENV;
 
-if (!ENV || ![`qa`, 'stage', `dev`, `qaApi`, `devApi`].includes(ENV)) {
-  console.log(`Please provide a correct environment value after command like "--ENV=qa|stage|dev|qaApi|devApi"`);
+if (!ENV || !['stage', 'stageApi'].includes(ENV)) {
+  console.log(
+    'Please provide a correct environment value after command like "--ENV=stage|stageApi"',
+  );
   process.exit();
 }
 
 const reportConfig: OrtoniReportConfig = {
   base64Image: true,
-  title: "Playwright Framework with Typescript",
+  title: 'Playwright Framework with Typescript',
   showProject: true,
-  filename: "OrtoniHtmlReport",
-  authorName: "IGS Report",
-  preferredTheme: "dark",
-  projectName: "Playwright Framework with Typescript",
-}
+  filename: 'OrtoniHtmlReport',
+  authorName: 'IGS Report',
+  preferredTheme: 'dark',
+  projectName: 'Playwright Framework with Typescript',
+};
 
 const config: PlaywrightTestConfig = {
-
   //Global Setup to run before all tests
-  globalSetup: `./global-setup`,
+  globalSetup: './global-setup',
 
   //sets timeout for each test case
-  timeout: 1700000,
+  // timeout: 920000,
 
   //number of retries if test case fails
   retries: 0,
 
   //Reporters
-  reporter: [[`./CustomReporterConfig.ts`], [`allure-playwright`], [`html`, { outputFolder: 'html-report', open: 'never' }],['ortoni-report', reportConfig],['list']],
+  reporter: [
+    ['./CustomReporterConfig.ts'],
+    ['allure-playwright'],
+    ['html', { outputFolder: 'html-report', open: 'never' }],
+    ['ortoni-report', reportConfig],
+    ['list'],
+  ],
 
-  workers:1,
-  
+  workers: 1,
+
   projects: [
     {
-      name: `Chrome`,
+      name: 'Chrome',
       use: {
         // Configure the browser to use.
-        browserName: `chromium`,
+        browserName: 'chromium',
 
         //Chrome Browser Config
-        channel: `chrome`,
+        channel: 'chrome',
 
         //Picks Base Url based on User input
         baseURL: testConfig[ENV],
@@ -59,115 +67,114 @@ const config: PlaywrightTestConfig = {
         acceptDownloads: true,
 
         //Artifacts
-        screenshot: `only-on-failure`,
-        video: `retain-on-failure`,
-        trace: `retain-on-failure`,
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
 
         //Slows down execution by ms
         launchOptions: {
-          slowMo: 5000
-        }
+          slowMo: 5000,
+        },
       },
     },
     {
-      name: `Chromium`,
+      name: 'Chromium',
       use: {
-        browserName: `chromium`,
+        browserName: 'chromium',
         baseURL: testConfig[ENV],
         headless: true,
         viewport: { width: 1280, height: 800 },
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
-        screenshot: `only-on-failure`,
-        video: `retain-on-failure`,
-        trace: `retain-on-failure`,
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
         launchOptions: {
-          slowMo: 5000
-        }
+          slowMo: 5000,
+        },
       },
     },
 
     {
-      name: `Firefox`,
+      name: 'Firefox',
       use: {
-        browserName: `firefox`,
+        browserName: 'firefox',
         baseURL: testConfig[ENV],
         headless: true,
         viewport: { width: 1280, height: 800 },
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
-        screenshot: `only-on-failure`,
-        video: `retain-on-failure`,
-        trace: `retain-on-failure`,
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
         launchOptions: {
-          slowMo: 5000
-        }
+          slowMo: 5000,
+        },
       },
     },
 
     {
-      name: `Edge`,
+      name: 'Edge',
       use: {
-        browserName: `chromium`,
-        channel: `msedge`,
+        browserName: 'chromium',
+        channel: 'msedge',
         baseURL: testConfig[ENV],
         headless: false,
-        viewport: { width: 1280, height: 800 },
+        viewport: { width: 1280, height: 600 },
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
-        screenshot: `only-on-failure`,
-        video: `retain-on-failure`,
-        trace: `retain-on-failure`,
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
         launchOptions: {
-          slowMo: 5000
-        }
+          slowMo: 5000,
+        },
       },
     },
     {
-      name: `WebKit`,
+      name: 'WebKit',
       use: {
-        browserName: `webkit`,
+        browserName: 'webkit',
         baseURL: testConfig[ENV],
         headless: true,
         viewport: { width: 1280, height: 800 },
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
-        screenshot: `only-on-failure`,
-        video: `retain-on-failure`,
-        trace: `retain-on-failure`,
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
         launchOptions: {
-          slowMo: 5000
-        }
+          slowMo: 5000,
+        },
       },
     },
     {
-      name: `Device`,
+      name: 'Device',
       use: {
-        ...devices[`Pixel 4a (5G)`],
-        browserName: `chromium`,
-        channel: `chrome`,
+        ...devices['Pixel 4a (5G)'],
+        browserName: 'chromium',
+        channel: 'chrome',
         baseURL: testConfig[ENV],
         headless: true,
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
-        screenshot: `only-on-failure`,
-        video: `retain-on-failure`,
-        trace: `retain-on-failure`,
+        screenshot: 'only-on-failure',
+        video: 'retain-on-failure',
+        trace: 'retain-on-failure',
         launchOptions: {
-          slowMo: 5000
-        }
+          slowMo: 5000,
+        },
       },
     },
     {
-      name: `DB`
+      name: 'DB',
     },
     {
-      name: `API`,
+      name: 'API',
       use: {
-        baseURL: testConfig[ENV]
-      }
-    }
+        baseURL: testConfig[ENV],
+      },
+    },
   ],
-  
 };
 export default config;

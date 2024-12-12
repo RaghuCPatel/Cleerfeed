@@ -1,35 +1,29 @@
 import { TestInfo, test as baseTest } from '@playwright/test';
-import { LoginPage } from '@pages/LoginPage';
+
 import { WebActions } from '@lib/WebActions';
-import AxeBuilder from '@axe-core/playwright';
-import { OnboardingPage } from '@pages/OnboardingPage';
+import { LoginPage } from '@pages/LoginPage';
 import { NewWorkspacePage } from '@pages/NewWorkspacePage';
+import { OnboardingPage } from '@pages/OnboardingPage';
 
 const test = baseTest.extend<{
-    webActions: WebActions;
-    loginPage: LoginPage;
-    onboardingPage: OnboardingPage;
-    newWorkspacePage:NewWorkspacePage;
-    makeAxeBuilder: AxeBuilder;
-    testInfo: TestInfo;
+  webActions: WebActions;
+  loginPage: LoginPage;
+  onboardingPage: OnboardingPage;
+  newWorkspacePage: NewWorkspacePage;
+  testInfo: TestInfo;
 }>({
-    webActions: async ({ page, context }, use) => {
-        await use(new WebActions(page, context));
-    },
-    loginPage: async ({ page, context }, use) => {
-        await use(new LoginPage(page, context));
-    },
-    onboardingPage: async ({ page, context }, use) => {
-        await use(new OnboardingPage(page, context));
-    },
-    newWorkspacePage: async ({ page, context }, use) => {
-        await use(new NewWorkspacePage(page, context));
-    },
-    makeAxeBuilder: async ({ page }, use) => {
-        await use(new AxeBuilder({ page })
-            .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'])
-            .exclude('#commonly-reused-element-with-known-issue'));
-    }
-})
+  webActions: async ({ page, context }, use) => {
+    await use(new WebActions(page, context));
+  },
+  loginPage: async ({ page, context }, use) => {
+    await use(new LoginPage(page, context));
+  },
+  onboardingPage: async ({ page, context }, use) => {
+    await use(new OnboardingPage(page, context));
+  },
+  newWorkspacePage: async ({ page, context }, use) => {
+    await use(new NewWorkspacePage(page, context));
+  },
+});
 
 export default test;

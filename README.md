@@ -165,7 +165,7 @@ npm run test:serial --ENV="qa"
 6. For executing API test cases, please provide "ENV" value as "qaApi" or "devApi" :
 
 ```JS {"id":"01J84MC2DJ896RFSQ8F01YZN30"}
-npm run test:api --ENV="qaApi" 
+npm run test:api --ENV="qaApi"
 ```
 
 7. For recording test scripts :
@@ -206,15 +206,15 @@ npx playwright show-trace trace.zip
 
 18. You can change the Logging Message at Test Case/Test Step Level in CustomReporterConfig.ts file
 19. In `tsconfig.json` file in `paths` section we can re-assign the long path imports like '../../' to a variable which starts with '@' and then we can use it to shorten our import statements in respective file.
-   In the below example wherever '../../pageFactory/pageRepository/' import statement is used we can replace it with '@pages'
+    In the below example wherever '../../pageFactory/pageRepository/' import statement is used we can replace it with '@pages'
 
 ```JS {"id":"01J84MC2DK9X21N9RTHEH976Q7"}
 "@pages/*":["pageFactory/pageRepository/*"]
 ```
 
 20. Network Replay :
-   For using this featre in Playwright we use HAR file.
-   HAR (HTTP Archive) is a file format used by several HTTP session tools to export the captured data. This can be highly useful in troubleshooting complex issues by obtaining additional information about the network requests that are generated in the browser while an issue occurs.
+    For using this featre in Playwright we use HAR file.
+    HAR (HTTP Archive) is a file format used by several HTTP session tools to export the captured data. This can be highly useful in troubleshooting complex issues by obtaining additional information about the network requests that are generated in the browser while an issue occurs.
 
 To generate HAR file navigate to `HAR.test.ts` inside functional folder, in that use the below line
 
@@ -263,18 +263,18 @@ npm run test:ui --ENV="qa"
 
 25. GitHub Actions is configured in `.github/workflows/playwright.yml` file and events(trigger points) are set to pus/pull actions on master branch. Changes in command to run test cases can be made in "Run tests" section in this file.
 26. Once GitHub Actions job is completed Slack notification is triggered to the assigned channel with build status and html-report link. For enabling Slack you have to configure Incoming Webhooks for your repo, below is the great tutorial on that.
-   https://www.youtube.com/watch?v=hzIub2noFw8&t=357s&pp=ygUUZ2l0aHViIGFjdGlvbnMgc2xhY2s%3D
+    https://www.youtube.com/watch?v=hzIub2noFw8&t=357s&pp=ygUUZ2l0aHViIGFjdGlvbnMgc2xhY2s%3D
 27. For Configuring Ortoni HTML Report, navigate to "playwright.config.ts" and provide desired changes "reportConfig" variable, then pass this variable in reporter section as ,['ortoni-report', reportConfig]. For more details on this please refer below video
-   https://www.youtube.com/watch?v=HMaiL6cARZk
+    https://www.youtube.com/watch?v=HMaiL6cARZk
 
 ## Reports
 
 - Overall Report
-   ![Overall Report Screenshot](ReadMeImages/OverallReport.PNG)
+  ![Overall Report Screenshot](ReadMeImages/OverallReport.PNG)
 - Detailed Report
-   ![Detailed Report Screenshot](ReadMeImages/DetailedReport.PNG)
+  ![Detailed Report Screenshot](ReadMeImages/DetailedReport.PNG)
 - Failure Report
-   ![Failure Report Screenshot](ReadMeImages/FailureReport.PNG)
+  ![Failure Report Screenshot](ReadMeImages/FailureReport.PNG)
 
 ## SonarQube
 
@@ -306,11 +306,11 @@ sonar.password=password
 - Now go to the location where `sonar-project.properties` is present and run `sonar-scanner` command (In my case I will diectly run it inside my project), and wait for scan to get over with success message.
 - Now navigate to `http://localhost:9000/` and click on your project key displayed and go to Issues section, you can find all the suggestions and issues here. You can fix the issues ans rerun `sonar-scanner` command once again.
 - SonarQube Report
-   ![SonarQube Report Screenshot](ReadMeImages/SonarReport.PNG)
+  ![SonarQube Report Screenshot](ReadMeImages/SonarReport.PNG)
 
-   ## Docker
+  ## Docker
 
-   For running the tests on Docker container we have to first build a image from Dockerfile and then run the image to spawn container on which the test scripts will run.
+  For running the tests on Docker container we have to first build a image from Dockerfile and then run the image to spawn container on which the test scripts will run.
 
 - For building image from Docker run below command, where path to Dockerfile must be provided after -f tag and name of the image must be provided after -t tag.
 
@@ -325,7 +325,7 @@ docker run -e npm_config_ENV=qa --name playContainer playtest
 ```
 
 - If you want to run a different test or provide custom command, Go to Dockerfile and edit the last line which is CMD section. The below sample runs test cases serially on QA environment.
-   Once you have edited the CMD section we have to follow Step 1 to build a new image and ten run the Container from that image.
+  Once you have edited the CMD section we have to follow Step 1 to build a new image and ten run the Container from that image.
 
 ```JS {"id":"01J84MC2DK9X21N9RTJ7Z7DSG3"}
 CMD npm run test:serial --ENV="qa"
