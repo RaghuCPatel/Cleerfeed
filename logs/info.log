@@ -656,3 +656,15 @@
 {"level":"info","message":"Executing Step : Navigate to existing Slack workspace"}
 {"level":"info","message":"Executing Step : Navigate to ClearFeed application Using Magic link"}
 {"level":"info","message":"Test Case Completed : Verify Onboarding Page with Magic Link Using Employee Support and Standalone helpdesk without selecting Glove support opt Status : passed"}
+{"level":"info","message":"Test Case Started : Verify Created Channel,Request,Workflow and Collection Settings Using Customer Support and Standalone helpdesk"}
+{"level":"info","message":"Test Case Completed : Verify Created Channel,Request,Workflow and Collection Settings Using Customer Support and Standalone helpdesk Status : failed"}
+{"level":"info","message":"Test Case Started : Verify Created Channel,Workflow and Collection Settings Using Employee Support and Standalone helpdesk"}
+{"level":"info","message":"Test Case Completed : Verify Created Channel,Workflow and Collection Settings Using Employee Support and Standalone helpdesk Status : failed"}
+{"level":"info","message":"Test Case Started : Verify Created Channel,Request,Workflow and Collection Settings Using Customer Support and Standalone helpdesk"}
+{"level":"info","message":"Executing Step : Navigate to existing Slack workspace"}
+{"level":"info","message":"Test Case Completed : Verify Created Channel,Request,Workflow and Collection Settings Using Customer Support and Standalone helpdesk Status : failed"}
+{"level":"info","message":"Test Case Started : Verify Created Channel,Workflow and Collection Settings Using Employee Support and Standalone helpdesk"}
+{"level":"info","message":"Executing Step : Navigate to existing Slack workspace"}
+{"level":"info","message":"Test Case Completed : Verify Created Channel,Workflow and Collection Settings Using Employee Support and Standalone helpdesk Status : failed"}
+{"level":"info","message":"Test Case Started : Verify Created Channel,Request,Workflow and Collection Settings Using Customer Support and Standalone helpdesk"}
+{"level":"info","message":"Executing Step : Navigate to existing Slack workspace"}

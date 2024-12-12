@@ -67,7 +67,6 @@ export class NewWorkspacePage {
    * Method to navigate Slack Workspace
    */
   async loginToSlack() {
-    await webActions.decipherPassword(testData.sandBoxPassword);
     await this.page.goto(testData.slackURL);
     await this.page.waitForLoadState();
     await webActions.createMailslurpInbox();
